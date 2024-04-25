@@ -43,7 +43,11 @@
                 <p>{{member.interests}}</p>
             </tab>
             <tab heading="Photos">
-                <p>Photos ici</p>
+                <div class="image-grid">
+                    <div *ngFor="let image of getImages()" class="image-item">
+                      <img [src]="image.src">
+                    </div>
+                </div>
             </tab>
             <tab heading="Messages">
                 <p>Messages ici</p>

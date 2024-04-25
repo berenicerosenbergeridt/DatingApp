@@ -13,3 +13,21 @@
     background-color: aliceblue;
     border-top: none;
 }
+
+
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .image-item {
+    width: calc(33.33% - 20px); /* 33.33% pour 3 colonnes, 20px de marge */
+    margin: 10px;
+    box-sizing: border-box;
+  }
+  
+  img {
+    width: 100%;
+    height: auto;
+  }
+  

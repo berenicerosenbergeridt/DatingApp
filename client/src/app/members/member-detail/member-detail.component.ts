@@ -6,6 +6,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { Member } from 'src/app/_models/member';
 import { MembersService } from 'src/app/_services/members.service';
 
+
 @Component({
   selector: 'app-member-detail',
   standalone: true,
@@ -27,8 +28,15 @@ export class MemberDetailComponent implements OnInit {
     var username = this.route.snapshot.paramMap.get('username');
     if (!username) return;
     this.memberService.getMember(username).subscribe({
-      next: member => this.member = member
+      next: member => {
+        this.member = member,
+        this.getImages()}
     });
+  }
+
+  getImages(){
+    if (!this.member || !this.member.photos) return [];
+    return this.member.photos.map(photo => ({ src: photo.url, thumb: photo.url }));
   }
 
   capitalizeFirstLetter(value: string | undefined): string {

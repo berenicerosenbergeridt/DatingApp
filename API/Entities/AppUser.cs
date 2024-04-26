@@ -15,7 +15,7 @@ namespace API.Entities
         public  byte[] PasswordSalt {get;set;}
 
         public DateOnly DateOfBirth { get; set; }
-        public string knowAs { get; set; }
+        public string KnowAs { get; set; }
 
         public DateTime Created { get; set; } = DateTime.UtcNow;
         public DateTime LastActive { get; set; } = DateTime.UtcNow;

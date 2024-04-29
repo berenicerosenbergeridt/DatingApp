@@ -33,6 +33,18 @@ export class MembersService {
     return this.userParams;
   }
 
+  setUserParams(params: UserParams){
+    this.userParams = params;
+  }
+
+  resetUserParams() {
+    if (this.user) {
+      this.userParams = new UserParams(this.user);
+      return this.userParams;
+    }
+    return;
+  }
+
   getMembers(userParams: UserParams){
     const response = this.memberCache.get(Object.values(userParams).join('-'));
     if (response) return of (response);

@@ -19,7 +19,7 @@ public class DataContext : DbContext //créer l'instance
         base.OnModelCreating(builder);
 
         builder.Entity<UserLike>()
-            .HasKey(k=> new {k.SourceUserId, k.TargentUserId});
+            .HasKey(k=> new {k.SourceUserId, k.TargetUserId});
 
         builder.Entity<UserLike>()
             .HasOne(s => s.SourceUser)
@@ -30,7 +30,7 @@ public class DataContext : DbContext //créer l'instance
         builder.Entity<UserLike>()
             .HasOne(s => s.TargetUser)
             .WithMany(l => l.LikedByUsers)
-            .HasForeignKey(s => s.TargentUserId)
+            .HasForeignKey(s => s.TargetUserId)
             .OnDelete(DeleteBehavior.Cascade);
     }
 }
